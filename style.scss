@@ -1,15 +1,233 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    border: none;
-
-}
-
+// Custom.scss
+// Option A: Include all of Bootstrap
+// Include any default variable overrides here (though functions won't be available)
+// @import "./node_modules/bootstrap/scss/bootstrap";
+// Google Fonts.
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&family=Roboto:wght@100;300;400;500;700;900&display=swap');
+// Then add additional custom code here
 // Global color variables
 $global-bg-color : #202131;
 $global-prymary-color: #202131;
 $global-secundary-color: #20213170;
 $global-btn-color : #F4B942;
 $global-color-white :#fff;
+$global-font:'Roboto', sans-serif;
+$global-title-font: 'Josefin Sans', sans-serif;
+$global-title-size: 26pt;
+$global-size: 18pt;
+$global-navbar-size: 14pt;
+$tag-font-size: 14pt;
+$global-wight: 300;
+$global-wight-bold: 500;
 
+// button hover
+
+@mixin botton-hover($bg-color, $color){
+    background-color: $bg-color;
+    color: $color!important;
+    border-radius: 10px!important;
+    box-shadow: 0 0 1em .25em $bg-color;
+}
+
+@mixin button($bg-color, $color) {
+    background-color: $bg-color;
+    color: $color;
+}
+
+@mixin tags {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14pt;
+    font-weight: 300;
+    color: $global-btn-color;
+    
+}
+
+*{
+    padding: 0;
+    margin: 10;
+    box-sizing: border-box;
+    border: none;
+    font-family: $global-font;
+}
+
+::-webkit-scrollbar{
+    display: none;
+}
+
+h3{
+    font-size: $tag-font-size;
+}
+h1,h2{
+    font-size: $global-title-size;
+}
+
+.tag{
+    @include tags();
+}
+body{
+
+    height: 100vh;
+    width: 100vw;
+    background-color: $global-prymary-color;
+    
+    .container{
+        width: 100%;
+        height: 100%;;
+        scroll-snap-type: y proximity;
+        overflow-y: scroll;
+
+        
+        section{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            scroll-snap-align: start;
+            color: white;
+        }
+        h1{
+            color: white;
+        }
+
+        .section-1{
+            font-family: $global-font;
+            text-align: center;
+            h1{
+                font-size: 100pt;
+            }
+            h2{
+                font-size: 50pt;
+            }
+            h3{
+                font-size: 19pt;
+            }
+            .form-control{
+                background-color: $global-prymary-color!important;
+                border: none;
+
+            }
+            button{
+                @include button($global-btn-color,$global-prymary-color )
+                margin-top: 1em;
+                width: 15rem!important;
+            }
+            button:hover{
+                @include botton-hover($global-btn-color, $global-prymary-color )
+            }
+
+        }
+    }
+
+}
+
+
+body::before{
+    content:"";
+    background-image: url('/assets/images/home-background.jpeg');
+    background-size: cover;
+    top:0;
+    left: 0;
+    opacity: 20%;
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    z-index:-100;
+}
+
+.navbar{
+    background-color: $global-prymary-color!important;
+    border-bottom: 1px solid black;
+    box-shadow: 0 2px 5px black;
+
+    .navbar-menu{
+        .navbar-title{
+            font-family: $global-font!important;
+            font-size: $global-title-size;
+            color: $global-color-white;
+            display: none;
+        }
+        .navbar-toggler{
+            .toggler-icon{
+                width: 30px;
+                height: 1px;
+                background-color: $global-btn-color;
+                display: block;
+                transition: 0.2s;
+            }
+            .middle-bar{
+                margin: 5px auto;
+            }
+        }
+        .navbar-toggler:focus{
+            box-shadow: 0 1px 10px $global-btn-color!important;
+        }
+        .navbar-collapse{
+            .nav-item{
+                flex-grow: 2;                
+                text-align: center;
+                font-family: $global-font;
+                font-size: $global-navbar-size;
+                font-weight: $global-wight;
+
+            }
+            // hover effects
+            .nav-item-box:hover .nav-link{
+                @include botton-hover($global-btn-color,$global-prymary-color )
+            }
+            .brand{
+                flex-grow: 4;
+                text-align: center;
+            }
+            .navbar-nav {
+                justify-content: space-around;
+                align-items: center;
+                width: 100%;
+                .navbar-brand{
+                    font-family: $global-font!important;
+                    font-size: $global-title-size;
+                }
+                .nav-link{
+                    transition: 0.5s;
+                }
+                .nav-link,    
+                .navbar-brand{
+                    color: $global-color-white!important;
+                }
+                .active{
+                    color:$global-btn-color!important;
+                }
+            }    
+        }
+    }
+}
+
+// Snap Scroll
+
+
+// media rules.
+
+@media screen and (max-width:990px) {
+    .navbar-brand{
+            display: none;
+    }
+    .navbar-title{
+        display: block!important
+        ;
+    }
+    .nav-item-box {
+        width: 90%!important;
+    }
+
+    .section-1{
+        font-size: 20pt;
+        h1{
+            font-size: 50pt!important;
+        }
+        h2{
+            font-size: 25pt!important;
+        }
+        h3{
+            font-size: 12pt!important;
+        }
+    }
+}
