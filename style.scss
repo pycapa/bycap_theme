@@ -19,6 +19,7 @@ $global-navbar-size: 14pt;
 $tag-font-size: 14pt;
 $global-wight: 300;
 $global-wight-bold: 500;
+$social-icon-size: 1rem;
 
 // button hover
 
@@ -41,6 +42,30 @@ $global-wight-bold: 500;
     color: $global-btn-color;
     
 }
+
+@mixin social-icons {
+    color:$global-prymary-color;
+    span{
+        position: relative;
+        background-color:$global-btn-color;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        margin-right: 1rem;
+
+        i{
+            position: absolute;
+            margin-left: 0.5rem;
+            margin-top: 0.5rem;
+            font-size: $social-icon-size;
+        }
+        a{
+            color: $global-prymary-color;
+            text-decoration: none;
+        }
+    }
+}
+
 
 *{
     padding: 0;
@@ -107,12 +132,19 @@ body{
 
             }
             button{
-                @include button($global-btn-color,$global-prymary-color )
+                @include button($global-btn-color,$global-prymary-color );
                 margin-top: 1em;
                 width: 15rem!important;
             }
             button:hover{
                 @include botton-hover($global-btn-color, $global-prymary-color )
+            }
+
+        }
+
+        .section-2{
+            .social-icons{
+                @include social-icons();
             }
 
         }
@@ -229,5 +261,6 @@ body::before{
         h3{
             font-size: 12pt!important;
         }
+
     }
 }
