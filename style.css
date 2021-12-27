@@ -8,6 +8,10 @@
   font-family: "Roboto", sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 ::-webkit-scrollbar {
   display: none;
 }
@@ -27,6 +31,20 @@ h1, h2 {
   color: #F4B942;
 }
 
+.title {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 18pt;
+  font-weight: 300;
+  color: white;
+}
+
+.sub-title {
+  font-family: "Roboto", sans-serif;
+  font-size: 16pt;
+  font-weight: 200;
+  color: white;
+}
+
 body {
   height: 100vh;
   width: 100vw;
@@ -36,9 +54,17 @@ body {
 body .container {
   width: 100%;
   height: 100%;
-  -ms-scroll-snap-type: y proximity;
-      scroll-snap-type: y proximity;
-  overflow-y: scroll;
+  overflow: scroll;
+  scroll-behavior: smooth;
+  -webkit-transition: .5s;
+  transition: .5s;
+  -webkit-box-flex: 1 !important;
+      -ms-flex: 1 100% !important;
+          flex: 1 100% !important;
+  -webkit-box-orient: horizontal !important;
+  -webkit-box-direction: normal !important;
+      -ms-flex-flow: row wrap !important;
+          flex-flow: row wrap !important;
 }
 
 body .container section {
@@ -52,7 +78,6 @@ body .container section {
       -ms-flex-align: center;
           align-items: center;
   height: 100vh;
-  scroll-snap-align: start;
   color: white;
 }
 
@@ -120,6 +145,10 @@ body .container .section-2 .social-icons span i {
 body .container .section-2 .social-icons span a {
   color: #202131;
   text-decoration: none;
+}
+
+body .container .section-3 {
+  height: auto;
 }
 
 body::before {
@@ -220,6 +249,20 @@ body::before {
   color: #F4B942 !important;
 }
 
+.icon-up {
+  height: 20rem;
+}
+
+.icon-up a {
+  text-decoration: none;
+  color: #F4B942;
+  right: 0;
+  bottom: 0;
+  padding: 1rem;
+  position: fixed;
+  font-size: 18pt;
+}
+
 @media screen and (max-width: 990px) {
   .navbar-brand {
     display: none;
@@ -241,6 +284,12 @@ body::before {
   }
   .section-1 h3 {
     font-size: 12pt !important;
+  }
+  #mainContainer, .section-2, .section-3 {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
   }
 }
 /*# sourceMappingURL=style.css.map */
