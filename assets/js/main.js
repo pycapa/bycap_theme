@@ -4,12 +4,10 @@ window.addEventListener('scroll', function () {
 
       let icon_up = document.querySelector('.icon-up');
       let menu_bar = document.getElementById('navbar-menu');
-
+      menu_bar.classList.add('fixed-top');
       if (window.scrollY > 50) {
-            menu_bar.classList.add('fixed-top');
             icon_up.style.display = 'block';
       } else {
-            menu_bar.classList.remove('fixed-top');
             icon_up.style.display = 'none';
       }
 });
