@@ -1,18 +1,21 @@
 /* document.addEventListener("DOMContentLoaded", function () { */
 
+
 window.addEventListener('scroll', function () {
 
       let icon_up = document.querySelector('.icon-up');
       let menu_bar = document.getElementById('navbar-menu');
       menu_bar.classList.add('fixed-top');
       if (window.scrollY > 50) {
+
             icon_up.style.display = 'block';
       } else {
             icon_up.style.display = 'none';
       }
 });
-/* }); */
 
+
+/* }); */
 
 function active_item(vhref) {
       const menuItem = document.querySelectorAll('a.nav-link');
@@ -26,3 +29,8 @@ function active_item(vhref) {
             }
       }
 };
+
+
+function scroll_up(){
+      document.scrollY = 0;
+}

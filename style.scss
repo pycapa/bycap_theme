@@ -1,3 +1,19 @@
+
+/*
+Theme Name: BYCAP Theme
+Theme URI: https://bycap.us
+Author: Carlos A Perez A
+Author URI: https://bycap.us
+Description: This is a theme only to be used in bycap.us site.
+Tags: blog, gallery.
+Version: 1
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: bycap
+*/
+
+// ***********************************************************************************************************************
+
 // Custom.scss
 // Option A: Include all of Bootstrap
 // Include any default variable overrides here (though functions won't be available)
@@ -59,7 +75,7 @@ $social-icon-size: 1rem;
 }
 
 @mixin social-icons {
-    color:$global-prymary-color;
+    color:$global-prymary-color!important;
     span{
         position: relative;
         background-color:$global-btn-color;
@@ -73,9 +89,10 @@ $social-icon-size: 1rem;
             margin-left: 0.5rem;
             margin-top: 0.5rem;
             font-size: $social-icon-size;
+            color: $global-prymary-color!important;
         }
         a{
-            color: $global-prymary-color;
+            color: $global-prymary-color!important;
             text-decoration: none;
         }
     }
@@ -84,10 +101,12 @@ $social-icon-size: 1rem;
 
 *{
     padding: 0;
-    margin: 10;
+    margin: 0;
     box-sizing: border-box;
     border: none;
     font-family: $global-font;
+    font-weight: 200;
+    color: #fff;
 }
 
 html{
@@ -131,6 +150,9 @@ body{
         flex: 1 100%!important;
         flex-flow: row wrap!important;
 
+        p{
+            font-weight: 200;
+        }
         
         section{
             display: flex;
@@ -148,6 +170,7 @@ body{
         .section-1{
             font-family: $global-font;
             text-align: center;
+            height: 100vh;
             h1{
                 font-size: 100pt;
             }
@@ -185,6 +208,9 @@ body{
             height: auto;
         }
 
+    }
+    .page-counter{
+        width: 15rem;
     }
 
 }
@@ -271,16 +297,18 @@ body::before{
 }
 
 .icon-up{
-    height: 20rem;
     display: none;
     a{
         text-decoration: none;
-        color: $global-btn-color;
+        color: $global-btn-color!important;
         right: 0;
         bottom: 0;
         padding: 1rem;
         position: fixed;
         font-size: $global-size;
+    }
+    i{
+        color: $global-btn-color;
     }
 }
 
@@ -318,4 +346,90 @@ body::before{
     #mainContainer, .section-2, .section-3{
         flex-direction: column;;
     }
+}
+
+.footer{
+    height: 100vh;
+    h1, p{
+        font-size: 26pt;
+        font-family: $global-font;
+    }
+    h1, a{
+        font-weight: 200;
+        text-decoration: none;
+        color: $global-color-white;
+    }
+
+    p{
+        font-stretch: expanded;
+        letter-spacing: 4px;
+    }
+}
+
+
+
+// BUTTONS
+.cssbuttons-io-button {
+    cursor: pointer;
+    text-decoration: none;
+    margin-top: 1rem  ;
+    background: $global-prymary-color;
+    color: white!important;
+    font-family: inherit;
+    padding: 0.35em;
+    padding-left: 1.2em;
+    font-size: 17px;
+    font-weight: 200;
+    border-radius: 0.9em;
+    border: none;
+    letter-spacing: 0.05em;
+    display: flex;
+    align-items: center;
+    box-shadow: inset 0 0 1.6em -0.6em $global-btn-color;
+    overflow: hidden;
+    position: relative;
+    height: 2.8em;
+    padding-right: 3.3em;
+    .icon {
+        background: $global-prymary-color;
+        margin-left: 1em;
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 2.2em;
+        width: 2.2em;
+        border-radius: 0.7em;
+        box-shadow: 0.1em 0.1em 0.6em 0.2em $global-btn-color;
+        right: 0.3em;
+        transition: all 0.3s;
+        svg {
+            width: 1.1em;
+            transition: transform 0.3s;
+            color: $global-prymary-color;
+           }
+       
+    }
+}
+
+.cssbuttons-io-button:hover {
+    .icon {
+        width: calc(100% - 0.6em);
+        
+        svg {
+            transform: translateX(0.1em);
+        }
+    }
+}
+
+.cssbuttons-io-button:active .icon {
+    transform: scale(0.95);
+}
+
+
+// blog content style
+
+.thumbnail-image{
+    width: 30rem;
+
 }

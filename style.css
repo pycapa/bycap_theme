@@ -1,11 +1,25 @@
+/*
+Theme Name: BYCAP Theme
+Theme URI: https://bycap.us
+Author: Carlos A Perez A
+Author URI: https://bycap.us
+Description: This is a theme only to be used in bycap.us site.
+Tags: blog, gallery.
+Version: 1
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: bycap
+*/
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&family=Roboto:wght@100;300;400;500;700;900&display=swap");
 * {
   padding: 0;
-  margin: 10;
+  margin: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   border: none;
   font-family: "Roboto", sans-serif;
+  font-weight: 200;
+  color: #fff;
 }
 
 html {
@@ -66,6 +80,10 @@ body .container {
           flex-flow: row wrap !important;
 }
 
+body .container p {
+  font-weight: 200;
+}
+
 body .container section {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -87,6 +105,7 @@ body .container h1 {
 body .container .section-1 {
   font-family: "Roboto", sans-serif;
   text-align: center;
+  height: 100vh;
 }
 
 body .container .section-1 h1 {
@@ -126,7 +145,7 @@ body .container .section-2 {
 }
 
 body .container .section-2 .social-icons {
-  color: #202131;
+  color: #202131 !important;
 }
 
 body .container .section-2 .social-icons span {
@@ -143,16 +162,21 @@ body .container .section-2 .social-icons span i {
   margin-left: 0.5rem;
   margin-top: 0.5rem;
   font-size: 1rem;
+  color: #202131 !important;
 }
 
 body .container .section-2 .social-icons span a {
-  color: #202131;
+  color: #202131 !important;
   text-decoration: none;
 }
 
 body .container .section-3, body .container .section-4 {
   margin-top: 30% !important;
   height: auto;
+}
+
+body .page-counter {
+  width: 15rem;
 }
 
 body::before {
@@ -254,18 +278,21 @@ body::before {
 }
 
 .icon-up {
-  height: 20rem;
   display: none;
 }
 
 .icon-up a {
   text-decoration: none;
-  color: #F4B942;
+  color: #F4B942 !important;
   right: 0;
   bottom: 0;
   padding: 1rem;
   position: fixed;
   font-size: 18pt;
+}
+
+.icon-up i {
+  color: #F4B942;
 }
 
 @media screen and (max-width: 990px) {
@@ -296,5 +323,103 @@ body::before {
         -ms-flex-direction: column;
             flex-direction: column;
   }
+}
+
+.footer {
+  height: 100vh;
+}
+
+.footer h1, .footer p {
+  font-size: 26pt;
+  font-family: "Roboto", sans-serif;
+}
+
+.footer h1, .footer a {
+  font-weight: 200;
+  text-decoration: none;
+  color: #fff;
+}
+
+.footer p {
+  font-stretch: expanded;
+  letter-spacing: 4px;
+}
+
+.cssbuttons-io-button {
+  cursor: pointer;
+  text-decoration: none;
+  margin-top: 1rem;
+  background: #202131;
+  color: white !important;
+  font-family: inherit;
+  padding: 0.35em;
+  padding-left: 1.2em;
+  font-size: 17px;
+  font-weight: 200;
+  border-radius: 0.9em;
+  border: none;
+  letter-spacing: 0.05em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-shadow: inset 0 0 1.6em -0.6em #F4B942;
+          box-shadow: inset 0 0 1.6em -0.6em #F4B942;
+  overflow: hidden;
+  position: relative;
+  height: 2.8em;
+  padding-right: 3.3em;
+}
+
+.cssbuttons-io-button .icon {
+  background: #202131;
+  margin-left: 1em;
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 2.2em;
+  width: 2.2em;
+  border-radius: 0.7em;
+  -webkit-box-shadow: 0.1em 0.1em 0.6em 0.2em #F4B942;
+          box-shadow: 0.1em 0.1em 0.6em 0.2em #F4B942;
+  right: 0.3em;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.cssbuttons-io-button .icon svg {
+  width: 1.1em;
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  transition: transform 0.3s, -webkit-transform 0.3s;
+  color: #202131;
+}
+
+.cssbuttons-io-button:hover .icon {
+  width: calc(100% - 0.6em);
+}
+
+.cssbuttons-io-button:hover .icon svg {
+  -webkit-transform: translateX(0.1em);
+          transform: translateX(0.1em);
+}
+
+.cssbuttons-io-button:active .icon {
+  -webkit-transform: scale(0.95);
+          transform: scale(0.95);
+}
+
+.thumbnail-image {
+  width: 30rem;
 }
 /*# sourceMappingURL=style.css.map */
