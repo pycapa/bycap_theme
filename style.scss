@@ -102,6 +102,12 @@ $white-soft : #cdcdcd;
                 margin: auto;
 
             }
+    }
+    .current-menu-item a::before {
+        content: '';
+        width: 80%!important;
+        transform: translateX(1.5rem)!important;
+        top: 2.5rem!important;
 
     }
 }
@@ -112,11 +118,13 @@ $white-soft : #cdcdcd;
     margin: 0;
     box-sizing: none;
 
+
 }
 
 body{
     background: $dark-color;
     font-family: 'Roboto', sans-serif;
+
 }
 .section-2{
     flex-direction: row!important;
@@ -176,12 +184,43 @@ h1,p, hr{
 
 
 // NAV BAR Css
+.bg-nav-container{
+    background: $yellow-color-dark!important;
+    top: -1rem!important;
+}
 
 .navbar{
     display: flex!important;
     justify-content: start!important;
     padding: 1rem!important;
 
+    .current-menu-item{
+        position: relative;
+        text-align: center!important;
+
+        a{
+            color: $yellow-color-dark!important;
+
+
+        }
+    }
+
+    .current-menu-item a::before {
+
+        content: '';
+        position: absolute;
+        border-bottom: 1px solid $yellow-color;
+        width: 100%;
+        overflow: hidden;
+        left: 0;
+        top: 2rem;;
+        transition: 0.3s ease;
+
+    }
+
+    .nav-item:hover a{
+        color: $yellow-color-dark;
+    }
 
     .nav-container{
         display: flex;
@@ -221,9 +260,9 @@ h1,p, hr{
             }
         }
     }
-    .nav-item:hover a{
-        color: $yellow-color-dark;
-    }
+
+    
+
 
     // Diseñar el boton.
     #toggle-button{
@@ -244,7 +283,7 @@ h1,p, hr{
         width: 2rem;
         height: 2rem;
         right: 1rem;
-        top: 1rem;
+        top: 2rem;
         display: flex;
         position: absolute;
         visibility: hidden;
@@ -295,7 +334,7 @@ h1,p, hr{
             flex-direction: column;
             text-align: center;
             a{
-                color: black;
+                color: $dark-color!important;
             }
             li{
                 margin-bottom: 1rem;
@@ -307,7 +346,7 @@ h1,p, hr{
 
             }
             li:hover a{
-                color: blanchedalmond;
+                color: $dark-color-hard;
             }
         }
     }

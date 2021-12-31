@@ -64,6 +64,13 @@ Text Domain: bycap
     width: 100% !important;
     margin: auto;
   }
+  .current-menu-item a::before {
+    content: '';
+    width: 80% !important;
+    -webkit-transform: translateX(1.5rem) !important;
+            transform: translateX(1.5rem) !important;
+    top: 2.5rem !important;
+  }
 }
 
 * {
@@ -150,6 +157,11 @@ h1, p, hr {
   font-size: 1rem;
 }
 
+.bg-nav-container {
+  background: #a0792a !important;
+  top: -1rem !important;
+}
+
 .navbar {
   display: -webkit-box !important;
   display: -ms-flexbox !important;
@@ -158,6 +170,31 @@ h1, p, hr {
       -ms-flex-pack: start !important;
           justify-content: start !important;
   padding: 1rem !important;
+}
+
+.navbar .current-menu-item {
+  position: relative;
+  text-align: center !important;
+}
+
+.navbar .current-menu-item a {
+  color: #a0792a !important;
+}
+
+.navbar .current-menu-item a::before {
+  content: '';
+  position: absolute;
+  border-bottom: 1px solid #F4B942;
+  width: 100%;
+  overflow: hidden;
+  left: 0;
+  top: 2rem;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+}
+
+.navbar .nav-item:hover a {
+  color: #a0792a;
 }
 
 .navbar .nav-container {
@@ -210,10 +247,6 @@ h1, p, hr {
   text-transform: uppercase;
 }
 
-.navbar .nav-item:hover a {
-  color: #a0792a;
-}
-
 .navbar #toggle-button {
   display: none;
 }
@@ -238,7 +271,7 @@ h1, p, hr {
   width: 2rem;
   height: 2rem;
   right: 1rem;
-  top: 1rem;
+  top: 2rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -309,7 +342,7 @@ h1, p, hr {
 }
 
 .menu-responsive .menu-collapse .nav a {
-  color: black;
+  color: #202131 !important;
 }
 
 .menu-responsive .menu-collapse .nav li {
@@ -323,7 +356,7 @@ h1, p, hr {
 }
 
 .menu-responsive .menu-collapse .nav li:hover a {
-  color: blanchedalmond;
+  color: #101018b7;
 }
 
 .cssbuttons-io-button {

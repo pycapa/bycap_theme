@@ -1,25 +1,58 @@
 <?php
 
-// add actions
+// Actions.
+add_action( 'after_setup_theme', 'bc_theme_support');
+add_action( 'wp_head', 'add_viewport_meta_tag' , '1' );
+add_action( 'wp_enqueue_scripts', 'bc_reg_styles');
+add_action( 'wp_enqueue_scripts', 'bc_reg_scripts');
+add_action( 'init', 'bc_setup' );
+/******************************************************************************/
+// Filters.
+
+add_filter( 'nav_menu_link_attributes', 'bc_ul_menu_class', 10, 3 );
+
+/******************************************************************************/
+// fuction for setting up Wordpress Theme.
+function bc_setup(){
+    // Menu Setup
+    $locations = array(
+        'primary' => esc_html__( 'Desktop Primary UP Menu', 'bycap' )
+    );
+    register_nav_menus( $locations );
+    // End menu setup
+}
+
+function bc_ul_menu_class($atts, $item, $args){
+    if($args->theme_location == 'primary'){
+        $atts['class']='nav-link';
+    }
+    return $atts;
+
+}
 
 
 /******************************************************************************/
 
 
+
+
+
+
 // Add Theme supports
 
 function bc_theme_support(){
-
-add_theme_support( 'title-tag' );
+    add_theme_support( 'title-tag' );
+    add_theme_support( "custom-logo" );  
+    add_theme_support( 'post-thumbnails'); 
 }
-add_action( 'after_setup_theme', 'bc_theme_support');
+
 
 function add_viewport_meta_tag() {
     echo "<meta charset='UTF-8'>";
     echo "<meta http-equiv='X-UA-Compatible' content='IE=edge'>";
     echo "<meta name='viewport' content='width=device-width, initial-scale=1.0'>";
 }
-add_action( 'wp_head', 'add_viewport_meta_tag' , '1' );
+
 
 // Registring Style & Script Functions.
 
@@ -33,7 +66,7 @@ function bc_reg_styles(){
     wp_enqueue_style( 'bc-fontawsome', "https://use.fontawesome.com/releases/v5.15.4/css/all.css?ver=5.15.4'", array(), '5.15.4', 'all' );
     wp_enqueue_style( 'bc-fontawsome_2', "https://use.fontawesome.com/releases/v5.15.4/css/v4-shims.css?ver=5.15.4", array(), '5.15.4', 'all' );
 }
-add_action( 'wp_enqueue_scripts', 'bc_reg_styles');
+
 
 function bc_reg_scripts(){
      // scripts
@@ -43,7 +76,7 @@ function bc_reg_scripts(){
 }
 
 
-add_action( 'wp_enqueue_scripts', 'bc_reg_scripts');
+
 
 
 

@@ -1,1 +1,2 @@
-<h1>Desde index</h1>
+<?php get_header(  );?>
+<?php get_footer( );?>
