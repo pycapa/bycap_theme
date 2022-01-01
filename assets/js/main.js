@@ -7,6 +7,23 @@ let checked = document.getElementById('toggle-button');
 let label = document.getElementById('label-toggle-button');
 let icon = document.getElementById('icon-menu');
 
+let elements = [['.nav-container::after'], 
+['content', "''"],
+['background-color', '#101018b7', true],
+['width', '50%', true],
+['height', '100%'],
+['position', 'absolute'],
+['top','0'],
+['left','0'],
+['z-index',-1000],
+['border-radius','0 15px 15px 0']];
+
+
+
+if (performance.type == performance.TYPE_RELOAD) {
+      sessionStorage.removeItem('rule_pos');
+    }
+
 button.addEventListener("click", () => {
 
       if (checked.checked) {
@@ -44,41 +61,57 @@ function data_text_to_menu_links() {
       }
 }
 
-window.addEventListener('scroll', ()=>{
-      const scroll = window.scrollY;
-      const nav_container = document.getElementById('navbar');
-      (scroll > 20) ? nav_container.classList.add('bg-nav-container') : nav_container.classList.remove('bg-nav-container');
-
-      for (const css of document.styleSheets) {
-            console.log(css.ownerNode.id);
-
-      }
-
-
-/* 
-      nav_container.styleSheets[0].addRule('navbar::hover', 'background-color: red',0 )
-
-
-      document.styleSheets[0].addRule('#elid:hover', 'background-color: red', 0);*/
-})
-
 // function to create pseudoclass in custom stylesheet.
 // arguments must be a object
-function create_psudo_class(css_name ,pseudo_name, ...args){ 
+function create_psudo_class(css_name, insert, ...args){ 
       const sheets = document.styleSheets
+      for (var i = 0; i < args.length; i++) {
+            var j = 1,
+                rule = args[i],
+                selector = rule[0],
+                propStr = '';
+            // If the second argument of a rule is an array of arrays, correct our variables.
+            if (Array.isArray(rule[1][0])) {
+              rule = rule[1];
+              j = 0;
+            }
+            
+            for (var pl = rule.length; j < pl; j++) {
+                  var prop = rule[j];
+                  propStr += prop[0] + ': ' + prop[1] + (prop[2] ? '!important' : '') + ';\n';
+            }
+      }
+
       for (const sheet of sheets) {
             if (sheet.ownerNode.id === css_name){
-                  args.forEach( function(element)  {
-                        sheet.insertRule(pseudo_name + element sheet.ownerNode)
-                  })
+                  const rule_key = sessionStorage.getItem('rule_pos');
+                  if(insert){
+                        if (rule_key === null){
+                              sessionStorage.setItem('rule_pos',sheet.cssRules.length )
+                              sheet.insertRule(selector +'{'+ '\n' + propStr + '}', sheet.cssRules.length);                      
+                        }
+                  } else {
+                        if(rule_key!=null){
+                              sheet.deleteRule(rule_key);
+                              sessionStorage.removeItem('rule_pos');
+                        }
+
+                  }
+
             }
       }
 }
-let elementos = {
-      'content' : '',
-      'background' : 'black',
-      'width' : '100%'
-}
+
+window.addEventListener('scroll', ()=>{
+      const scroll = window.scrollY;
+      let nav_var = document.getElementById('navbar');
+      if((scroll>50)){
+            create_psudo_class('bc-style-css', true, elements); 
+            nav_var.classList.add('fixed-top');           
+      }else {
+            create_psudo_class('bc-style-css', false, elements);
+            nav_var.classList.remove('fixed-top');           
 
 
-create_psudo_class('bc-style-css', 'class-psudo-name', elementos);
+      }
+})
