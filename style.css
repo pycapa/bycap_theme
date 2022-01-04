@@ -17,6 +17,7 @@ Text Domain: bycap
   font-size: 2rem !important;
   font-weight: 500 !important;
   color: #cdcdcd !important;
+  text-transform: uppercase;
 }
 
 .sub-title {
@@ -70,6 +71,12 @@ Text Domain: bycap
     -webkit-transform: translateX(1.5rem) !important;
             transform: translateX(1.5rem) !important;
     top: 2.5rem !important;
+  }
+  .img-blog {
+    -webkit-box-orient: vertical !important;
+    -webkit-box-direction: normal !important;
+        -ms-flex-direction: column !important;
+            flex-direction: column !important;
   }
 }
 
@@ -383,6 +390,9 @@ h1, p, hr {
   overflow: hidden;
   position: relative;
   height: 2.8em;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
   padding-right: 3.3em;
 }
 
@@ -458,5 +468,18 @@ h1, p, hr {
 
 .thumbnail-image {
   width: 30rem;
+}
+
+.breadcrumb {
+  padding: 8px 15px;
+  margin-bottom: 20px;
+  list-style: none;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+}
+
+.breadcrumb a {
+  color: #428bca;
+  text-decoration: none;
 }
 /*# sourceMappingURL=style.css.map */

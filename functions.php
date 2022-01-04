@@ -20,6 +20,11 @@ function bc_setup(){
     );
     register_nav_menus( $locations );
     // End menu setup
+
+     // image size setup.
+     add_image_size( 'medium', 510, 340, true );
+     add_image_size( 'post_image', 510, 1000, true );
+     add_image_size( 'small', 150, 150, true );
 }
 
 function bc_ul_menu_class($atts, $item, $args){
@@ -78,7 +83,28 @@ function bc_reg_scripts(){
 
 
 
+///// 
+// own functions
 
+function get_breadcrumb() {
+    echo '<a href="'.home_url().'" rel="nofollow">Home</a>';
+    if (is_category() || is_single()) {
+        echo "&nbsp;&nbsp;&#187;&nbsp;&nbsp;";
+        the_category(' &bull; ');
+            if (is_single()) {
+                echo " &nbsp;&nbsp;&#187;&nbsp;&nbsp; ";
+                the_title();
+            }
+    } elseif (is_page()) {
+        echo "&nbsp;&nbsp;&#187;&nbsp;&nbsp;";
+        echo the_title();
+    } elseif (is_search()) {
+        echo "&nbsp;&nbsp;&#187;&nbsp;&nbsp;Search Results for... ";
+        echo '"<em>';
+        echo the_search_query();
+        echo '</em>"';
+    }
+}
 
 
 ?>
