@@ -27,8 +27,7 @@
             <section class="section-2">
                   <div class="col-md-5 text-start p-2 ">
                         <h3 class="tag">ABOUT ME</h3>
-                        <h2 class="title">I'M A WEB DESIGNER &
-                              WORDPRESS THEME DEVELOPER</h2>
+                        <h2 class="title">I'M A WORDPRESS THEME DEVELOPER</h2>
                   </div>
                   <div class="col-md-7 text-start p-2">
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi quod ipsum, impedit eum iure
@@ -62,12 +61,34 @@
             <hr>
 
             <section class="section-3">
+
+                  <?php
+            
+                        $lastes_posts = get_posts( array(
+                        'numberposts' => 3,
+                        ));
+                  
+                  ?>
                   <div class="row">
-                        <h2>MY BLOG</h2>
+                        <h2 class="title">MY BLOG</h2>
                   </div>
                   <div class="row">
+
+                        <?php
+                        
+                        if ($lastes_posts):
+                              foreach($lastes_posts as $last_post):
+                                    setup_postdata( $last_post );
+                        
+                        ?>
+
+
+
                         <div class="col-md-4 p-2 d-flex flex-column justify-content-md-between align-content-center">
-                              <img class="img-fluid" src="/assets/images/home-background.jpeg" alt="">
+                              <?php echo get_the_post_thumbnail( $last_post-> ID, "medium", array(
+                                    "class='img-fluid'"
+                              ) );
+                              ?>
                               <h3 class="title mt-4">
                                     MEMENTO MORI
                               </h3>
@@ -89,52 +110,14 @@
                                     </div>
                               </a>
                         </div>
-                        <div class="col-md-4 p-2 d-flex flex-column justify-content-md-between align-content-center">
-                              <img class="img-fluid" src="/assets/images/home-background.jpeg" alt="">
-                              <h3 class="title mt-4">
-                                    MEMENTO MORISi
-                              </h3>
-                              <p>This is a short summary of post. Lorem ipsum dolor sit amet
-                                    consectetur adipisicing
-                                    elit. Porro laboriosam nobis, totam nulla voluptatem deleniti cum sequi repudiandae
-                                    dolor rerum quo
-                                    reiciendis, mollitia consequatur inventore. Deleniti enim praesentium officiis nisi!
-                              </p>
-                              <a href="blog-index.html" class="cssbuttons-io-button"> Read more? click me!
-                                    <div class="icon">
-                                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
-                                                height="24">
-                                                <path fill="none" d="M0 0h24v24H0z"></path>
-                                                <path fill="currentColor"
-                                                      d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z">
-                                                </path>
-                                          </svg>
-                                    </div>
-                              </a>
-                        </div>
-                        <div class="col-md-4 p-2 d-flex flex-column justify-content-md-between align-content-center">
-                              <img class="img-fluid" src="/assets/images/home-background.jpeg" alt="" srcset="">
-                              <h3 class="title mt-4">
-                                    MEMENTO MORI
-                              </h3>
-                              <p>This is a short summary of post. Lorem ipsum dolor sit amet
-                                    consectetur adipisicing
-                                    elit. Porro laboriosam nobis, totam nulla voluptatem deleniti cum sequi repudiandae
-                                    dolor rerum quo
-                                    reiciendis, mollitia consequatur inventore. Deleniti enim praesentium officiis nisi!
-                              </p>
-                              <a href="blog-index.html" class="cssbuttons-io-button"> Read more? click me!
-                                    <div class="icon">
-                                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
-                                                height="24">
-                                                <path fill="none" d="M0 0h24v24H0z"></path>
-                                                <path fill="currentColor"
-                                                      d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z">
-                                                </path>
-                                          </svg>
-                                    </div>
-                              </a>
-                        </div>
+
+                        <?php endforeach;
+                              wp_reset_postdata(  );
+                              endif;
+                        ?>
+
+
+                        
                   </div>
             </section>
             <hr>
