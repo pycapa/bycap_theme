@@ -90,6 +90,7 @@ Text Domain: bycap
 body {
   background: #202131;
   font-family: 'Roboto', sans-serif;
+  color: white !important;
 }
 
 .section-2 {
@@ -366,6 +367,10 @@ h1, p, hr {
   color: #101018b7;
 }
 
+.post-img {
+  margin: 0 auto !important;
+}
+
 .cssbuttons-io-button {
   cursor: pointer;
   text-decoration: none;
@@ -394,6 +399,7 @@ h1, p, hr {
   width: -moz-fit-content;
   width: fit-content;
   padding-right: 3.3em;
+  margin: auto auto 0 auto;
 }
 
 .cssbuttons-io-button .icon {

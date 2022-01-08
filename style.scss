@@ -129,6 +129,7 @@ $white-soft : #cdcdcd;
 body{
     background: $dark-color;
     font-family: 'Roboto', sans-serif;
+    color: white!important;
 
 }
 .section-2{
@@ -358,7 +359,9 @@ h1,p, hr{
 
 }
 
-
+.post-img{
+    margin: 0 auto!important;
+}
 
 // BUTTONS
 .cssbuttons-io-button {
@@ -383,6 +386,7 @@ h1,p, hr{
     height: 2.8em;
     width: fit-content;
     padding-right: 3.3em;
+    margin: auto auto 0 auto;
     .icon {
         background: $dark-color;
         margin-left: 1em;

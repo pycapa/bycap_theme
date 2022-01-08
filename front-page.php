@@ -6,7 +6,7 @@
                   <h1>HI! I'M</h1>
                   <h2 class="title mb-2">CARLOS ALBERTO</h2>
                   <h3 class="sub-title">I’D LOVE TO HELP YOU WITH YOUR WEB DESIGN</h3>
-                  <div class="mb-3 mt-3 d-flex justify-content-md-evenly align-items-center section-button">
+                  <div class="mb-3 mt-3 m-auto d-flex justify-content-md-evenly align-items-center section-button">
                         <input type="email" class="form-control" name="email" id="email-sender"
                               placeholder="email address" aria-describedby="emailHelpId" placeholder="">
                         <a class="cssbuttons-io-button">I WANT YOUR E-BOOK!
@@ -66,39 +66,29 @@
             
                         $lastes_posts = get_posts( array(
                         'numberposts' => 3,
-                        ));
-                  
+                        ));                  
                   ?>
-                  <div class="row">
+                  <div class="row ">
                         <h2 class="title">MY BLOG</h2>
                   </div>
-                  <div class="row">
+                  <div class="row justify-content-center">
 
                         <?php
                         
                         if ($lastes_posts):
                               foreach($lastes_posts as $last_post):
                                     setup_postdata( $last_post );
-                        
                         ?>
-
-
-
                         <div class="col-md-4 p-2 d-flex flex-column justify-content-md-between align-content-center">
                               <?php echo get_the_post_thumbnail( $last_post-> ID, "medium", array(
-                                    "class='img-fluid'"
+                                    "class" => 'img-fluid post-img',
                               ) );
                               ?>
                               <h3 class="title mt-4">
-                                    MEMENTO MORI
+                                   <?php echo get_the_title( $last_post -> ID );?>
                               </h3>
-                              <p>This is a short summary of post. Lorem ipsum dolor sit amet
-                                    consectetur adipisicing
-                                    elit. Porro laboriosam nobis, totam nulla voluptatem deleniti cum sequi repudiandae
-                                    dolor rerum quo
-                                    reiciendis, mollitia consequatur inventore. Deleniti enim praesentium officiis nisi!
-                              </p>
-                              <a href="blog-index.html" class="cssbuttons-io-button"> Read more? click me!
+                              <p><?php echo get_the_excerpt( $last_post -> ID );?></p>
+                              <a href=<?php echo get_permalink( $last_post -> ID);?> class="cssbuttons-io-button"> Read more? click me!
                                     <div class="icon">
                                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
                                                 height="24">
@@ -126,19 +116,24 @@
                   <div class="row">
                         <h2>MY PORTFOLIO</h2>
                   </div>
-                  <div class="row">
+                  <div class="row justify-content-center">
+                        <?php
+                              $args = array(
+                                    'post_type' => 'portfolio',
+                                    'post_per_page' => 3
+                              );
+                              $portfolio = new WP_Query($args);
+                              while($portfolio->have_posts(  )): $portfolio->the_post(  );
+
+                        ?>
                         <div class="col-md-4 p-2 d-flex flex-column justify-content-md-between align-content-center">
-                              <img class="img-fluid" src="/assets/images/home-background.jpeg" alt="">
+                              <?php the_post_thumbnail( 'medium', "class='img-fluid'" )?>
                               <h3 class="title mt-4">
-                                    AMOR FATI
+                                    <?php the_title(  );?>
                               </h3>
-                              <p>This is a short summary of post. Lorem ipsum dolor sit amet
-                                    consectetur adipisicing
-                                    elit. Porro laboriosam nobis, totam nulla voluptatem deleniti cum sequi repudiandae
-                                    dolor rerum quo
-                                    reiciendis, mollitia consequatur inventore. Deleniti enim praesentium officiis nisi!
+                              <p> <?php the_excerpt(  );?>
                               </p>
-                              <a class="cssbuttons-io-button"> go!
+                              <a class="cssbuttons-io-button" href=<?php the_permalink( );?>> go there!
                                     <div class="icon">
                                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
                                                 height="24">
@@ -150,52 +145,9 @@
                                     </div>
                               </a>
                         </div>
-                        <div class="col-md-4 p-2 d-flex flex-column justify-content-md-between align-content-center">
-                              <img class="img-fluid" src="/assets/images/home-background.jpeg" alt="">
-                              <h3 class="title mt-4">
-                                    AMOR FATI
-                              </h3>
-                              <p>This is a short summary of post. Lorem ipsum dolor sit amet
-                                    consectetur adipisicing
-                                    elit. Porro laboriosam nobis, totam nulla voluptatem deleniti cum sequi repudiandae
-                                    dolor rerum quo
-                                    reiciendis, mollitia consequatur inventore. Deleniti enim praesentium officiis nisi!
-                              </p>
-                              <a class="cssbuttons-io-button"> go!
-                                    <div class="icon">
-                                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
-                                                height="24">
-                                                <path fill="none" d="M0 0h24v24H0z"></path>
-                                                <path fill="currentColor"
-                                                      d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13pv-2z">
-                                                </path>
-                                          </svg>
-                                    </div>
-                              </a>
-                        </div>
-                        <div class="col-md-4 p-2 d-flex flex-column justify-content-md-between align-content-center">
-                              <img class="img-fluid" src="/assets/images/home-background.jpeg" alt="" srcset="">
-                              <h3 class="title mt-4">
-                                    AMOR FATI
-                              </h3>
-                              <p>This is a short summary of post. Lorem ipsum dolor sit amet
-                                    consectetur adipisicing
-                                    elit. Porro laboriosam nobis, totam nulla voluptatem deleniti cum sequi repudiandae
-                                    dolor rerum quo
-                                    reiciendis, mollitia consequatur inventore. Deleniti enim praesentium officiis nisi!
-                              </p>
-                              <a class="cssbuttons-io-button"> go!
-                                    <div class="icon">
-                                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
-                                                height="24">
-                                                <path fill="none" d="M0 0h24v24H0z"></path>
-                                                <path fill="currentColor"
-                                                      d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z">
-                                                </path>
-                                          </svg>
-                                    </div>
-                              </a>
-                        </div>
+
+                        <?php endwhile;
+                        wp_reset_postdata(  );?>
                   </div>
             </section>
             <hr>

@@ -1,5 +1,10 @@
 <?php
 
+/** Adding Queries */
+require_once dirname(__FILE__) . '/inc/queries.php';
+/** Adding custom post type (Events) */
+require_once dirname(__FILE__) . '/inc/posttypes.php';
+
 // Actions.
 add_action( 'after_setup_theme', 'bc_theme_support');
 add_action( 'wp_head', 'add_viewport_meta_tag' , '1' );
@@ -105,6 +110,4 @@ function get_breadcrumb() {
         echo '</em>"';
     }
 }
-
-
 ?>
