@@ -25,25 +25,18 @@
 
             <hr>
             <section class="section-2">
-                  <div class="col-md-5 text-start p-2 ">
+                  <div class="col-md-5 text-start  mt-4  p-2 ">
                         <h3 class="tag">ABOUT ME</h3>
                         <h2 class="title">I'M A WORDPRESS THEME DEVELOPER</h2>
                   </div>
                   <div class="col-md-7 text-start p-2">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi quod ipsum, impedit eum iure
-                              tempore aliquam
-                              officiis, modi quisquam nulla eligendi harum esse, quae totam excepturi cumque a odio?
-                              Modi.</p>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iusto provident vero ullam tenetur?
-                              Sint, nostrum
-                              expedita. Impedit, consequuntur voluptate. Officia dignissimos, beatae architecto corporis
-                              recusandae
-                              necessitatibus iure quod quaerat corrupti!
-                              Libero totam consequatur vel dolorum dolor veniam consectetur laborum placeat quod cum
-                              illum quisquam, quam
-                              tempora dolore, similique quibusdam, eveniet aut distinctio aspernatur perferendis omnis
-                              ullam expedita!
-                              Reiciendis, quaerat repellendus!
+                        <p>Hello again!
+
+                        You don't know but I am just a rookie developer but mi heart is exiting to learn every day.
+
+                        At this moment my page is under construction.
+
+                        I'll see you.
                         </p>
                         <span class="mb-3 mt-5 tag">FOLLOW ME</span>
                         <div class="social-icons d-flex flex-row">
